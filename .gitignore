@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.pyc
 .DS_Store
 node_modules/
@@ -306,3 +307,7 @@ tramp
 # Project 3 things
 proj3/img
 proj3/target
+=======
+*.class
+*.pyc
+>>>>>>> 5defb39da78cd620d25aa5e06249b6feb9298aa1
