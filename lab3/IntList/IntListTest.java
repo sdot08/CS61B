@@ -1,5 +1,5 @@
 import static org.junit.Assert.*;
-
+import static org.hamcrest.CoreMatchers.*;
 import org.junit.Test;
 
 public class IntListTest {
@@ -18,6 +18,17 @@ public class IntListTest {
 
         IntList x = IntList.list(3, 2, 1);
         assertEquals(threeTwoOne, x);
+    }
+
+
+    @Test(timeout=1000)
+    public void testReverse(){
+        IntList one=IntList.list(1,2,3,4);
+        IntList oneTest=IntList.list(4,3,2,1);
+        IntList two=new IntList();
+        assertEquals(IntList.reverse(one),oneTest);
+        assertEquals(IntList.reverse(two),null);
+        assertThat(IntList.reverse(one), not(one));
     }
 
     @Test
@@ -48,26 +59,10 @@ public class IntListTest {
         assertEquals(IntList.list(1, 4, 9), res);
     }
 
-    @Test
-    public void testDcatenate() {
-        IntList A = IntList.list(1, 2, 3);
-        IntList B = IntList.list(4, 5, 6);
-        IntList exp = IntList.list(1, 2, 3, 4, 5, 6);
-        assertEquals(exp, IntList.dcatenate(A, B));
-        assertEquals(IntList.list(1, 2, 3, 4, 5, 6), A);
-    }
-
-    @Test
-    public void testCatenate() {
-        IntList A = IntList.list(1,2,3);
-        IntList B = IntList.list(4, 5, 6);
-        IntList exp = IntList.list(1, 2, 3, 4, 5, 6);
-        assertEquals(exp, IntList.catenate(A, B));
-        assertEquals(IntList.list(1, 2, 3), A);
-    }
+}
 
     /** If you're running this from the command line, you'll need
       * to add a main method. See ArithmeticTest.java for an
       * example. */
 
-}
+
