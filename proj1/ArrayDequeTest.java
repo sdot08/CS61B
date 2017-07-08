@@ -28,7 +28,7 @@ public class ArrayDequeTest {
         b.addLast(1);
         b.addLast(5);
         b.addLast(10);
-        assertEquals(a.items,b.items);
+        assertArrayEquals(a.items,b.items);
 
         a.removeFirst();
         a.removeFirst();
@@ -38,7 +38,7 @@ public class ArrayDequeTest {
         a.addLast(4);
         a.addLast(5);
         a.addLast(6);
-        /* a.printDeque(); */
+        /*  a.printDeque();  6 10 1 2 3 4 5  */
 
 
     }
@@ -57,7 +57,7 @@ public class ArrayDequeTest {
         a.addLast(3);
         a.addLast(4);
         a.addLast(5);
-        /* a.printDeque(); */
+        /*  a.printDeque();  1 10 1 2 3 4 5 */
         a.addLast(6);
 
         ArrayDeque<Integer> b = new ArrayDeque<>();
@@ -70,13 +70,13 @@ public class ArrayDequeTest {
         b.addLast(4);
         b.addLast(5);
 
-        assertEquals(a.items,b.items);
+        assertArrayEquals(a.items,b.items);
 
         a.removeLast();
         a.removeLast();
         b.removeFirst();
         b.removeLast();
-        assertEquals(a.items,b.items);
+        assertArrayEquals(a.items,b.items);
     }
 
     @Test
@@ -88,6 +88,58 @@ public class ArrayDequeTest {
 
         assertEquals(one, 3);
         assertEquals(a.get(5), null);
+    }
+
+    @Test
+    public void testresize1() {
+        ArrayDeque<Integer> a = new ArrayDeque<>();
+        a.addFirst(1);
+        a.addFirst(2);
+        a.addFirst(3);
+        a.addFirst(4);
+        a.addFirst(5);
+        a.addFirst(6);
+        a.addFirst(1);
+        a.addFirst(2);
+        a.addFirst(3);
+        a.addFirst(4);
+        a.addFirst(5);
+        a.addFirst(6);
+
+        
+    }
+
+    @Test
+    public void testresize2() {
+        ArrayDeque<Integer> a = new ArrayDeque<>();
+        a.addLast(1);
+        a.addLast(2);
+        a.addLast(3);
+        a.addLast(1);
+        a.addLast(2);
+        a.addLast(3);
+        a.addFirst(3);
+        a.addFirst(4);
+        a.addFirst(5);
+        a.addFirst(6);
+        a.removeLast();
+        a.removeFirst();
+        a.addFirst(1);
+        a.addFirst(2);
+        a.removeLast();
+        a.addFirst(3);
+        a.addFirst(4);
+        a.addFirst(5);
+        a.addFirst(6);
+
+        a.addLast(5);
+        a.addLast(6);
+        a.removeFirst();
+        a.addFirst(3);
+        a.addFirst(4);
+        a.addFirst(5);
+        a.removeLast();
+        a.printDeque();
     }
 
 
