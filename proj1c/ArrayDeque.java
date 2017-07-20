@@ -1,4 +1,4 @@
-public class ArrayDeque <Item> implements Deque(Item){
+public class ArrayDeque<Item> implements Deque<Item>{
 
 
     Item[] items;
@@ -49,7 +49,7 @@ public class ArrayDeque <Item> implements Deque(Item){
         leng=capacity;
     }
     /** Adds an item to the front of the Deque.*/
-
+    @Override
     public void addFirst(Item item){
         if(front==-1 && rear==0){
             front=0;
@@ -68,6 +68,7 @@ public class ArrayDeque <Item> implements Deque(Item){
 
 
     /**  Adds an item to the back of the Deque. */
+    @Override
     public void addLast(Item item){
 
         if(front==-1 && rear==0){
@@ -89,6 +90,7 @@ public class ArrayDeque <Item> implements Deque(Item){
     }
 
     /** Returns true if deque is empty, false otherwise. */
+    @Override
     public boolean isEmpty(){
         if(size==0)
             return true;
@@ -97,6 +99,7 @@ public class ArrayDeque <Item> implements Deque(Item){
     }
 
     /** Removes and returns the item at the front of the Deque. If no such item exists, returns null. */
+    @Override
     public Item removeFirst(){
         if(isEmpty())
             return null;
@@ -112,7 +115,7 @@ public class ArrayDeque <Item> implements Deque(Item){
 
         return item;
     }
-
+    @Override
     public Item removeLast(){
         if(isEmpty())
             return null;
@@ -129,11 +132,13 @@ public class ArrayDeque <Item> implements Deque(Item){
 
 
     /** Returns the number of items in the Deque. */
+    @Override
     public int size() {
         return size;
     }
 
     /** Prints the items in the Deque from first to last, separated by a space. */
+    @Override
     public void printDeque(){
         if(isEmpty())
             return;
@@ -156,7 +161,7 @@ public class ArrayDeque <Item> implements Deque(Item){
         }
 
     }
-
+    @Override
     public Item get(int index){
         if(isEmpty())
             return null;

@@ -94,17 +94,18 @@ public class ArrayDequeTest {
     public void testresize1() {
         ArrayDeque<Integer> a = new ArrayDeque<>();
         a.addFirst(1);
-        a.addFirst(2);
-        a.addFirst(3);
-        a.addFirst(4);
-        a.addFirst(5);
-        a.addFirst(6);
+        a.addLast(2);
         a.addFirst(1);
-        a.addFirst(2);
-        a.addFirst(3);
-        a.addFirst(4);
-        a.addFirst(5);
-        a.addFirst(6);
+        a.addLast(2);
+        a.removeLast();
+        a.removeLast();
+        a.removeFirst();
+        a.removeFirst();
+        a.addFirst(1);
+        a.addLast(2);
+        a.addFirst(1);
+        a.addLast(2);
+        a.printDeque();
 
         
     }
@@ -139,9 +140,34 @@ public class ArrayDequeTest {
         a.addFirst(4);
         a.addFirst(5);
         a.removeLast();
-        a.printDeque();
+        /* a.printDeque(); 5 4 3 5 4 3 2 1 5 4 3 1 2 3 1 5  */
     }
 
+
+    @Test
+    public void testresize3() {
+        ArrayDeque<Integer> a = new ArrayDeque<>();
+        for(int i=0;i<4;i++) {
+            a.addLast(1);
+            a.addLast(2);
+            a.addLast(3);
+            a.addLast(4);
+            a.addLast(5);
+            a.addLast(6);
+            a.addLast(7);
+            a.addLast(8);
+            a.addLast(9);
+            a.addLast(10);
+            a.addLast(11);
+            a.addLast(12);
+        }
+        for(int i=0;i<38;i++) {
+            a.removeLast();
+        }
+
+
+        /* System.out.println(a.leng); 32 */
+    }
 
 }
 
