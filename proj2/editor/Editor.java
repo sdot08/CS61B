@@ -1,3 +1,4 @@
+
 package editor;
 
 import javafx.application.Application;
@@ -12,7 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.util.LinkedList;
-import java.util.AbstractCollection;
+
 
 public class Editor extends Application {
     private static final int WINDOW_WIDTH = 500;
@@ -32,7 +33,7 @@ public class Editor extends Application {
         private int fontSize = STARTING_FONT_SIZE;
 
         private String fontName = "Verdana";
-        private LinkedList<String> characterTypedList = new LinkedList();
+        private LinkedList<String> characterTypedList = new LinkedList<>();
         KeyEventHandler(final Group root, int windowWidth, int windowHeight) {
 
 
@@ -52,37 +53,35 @@ public class Editor extends Application {
 
         @Override
         public void handle(KeyEvent keyEvent) {
+            String characterTyped = new String();
+            Boolean isBackSpace = false;
+
+
             if (keyEvent.getEventType() == KeyEvent.KEY_TYPED) {
                 // Use the KEY_TYPED event rather than KEY_PRESSED for letter keys, because with
                 // the KEY_TYPED event, javafx handles the "Shift" key and associated
                 // capitalization.
-                //  characterTyped = new String();
-                characterTypedList.addLast(keyEvent.getCharacter());
-                String characterTyped= new String();
 
-                for(int i=0; i<characterTypedList.size();i++){
-                    characterTyped+=characterTypedList.get(i);
-                }
+                if (!keyEvent.getCharacter() .isEmpty()) {
+                    characterTypedList.addLast(keyEvent.getCharacter());
 
-                if(characterTyped.charAt(0) == 8){
-                    characterTypedList.removeLast();
-                    String characterTyped= new String();
-
-                    for(int i=0; i<characterTypedList.size();i++){
-                        characterTyped+=characterTypedList.get(i);
+                    for (int i = 0; i < characterTypedList.size(); i++) {
+                        characterTyped += characterTypedList.get(i);
                     }
-                // String characterTyped = keyEvent.getCharacter();
-                if (characterTyped.length() > 0 && characterTyped.charAt(0) != 8) {
-                    // Ignore control keys, which have non-zero length, as well as the backspace
-                    // key, which is represented as a character of value = 8 on Windows.
-                    displayText.setText(characterTyped);
-                    keyEvent.consume();
-                }
 
-                }
+                    // String characterTyped = keyEvent.getCharacter();
+                    if (characterTyped.length() > 0 && characterTyped.charAt(0) != 8) {
+                        // Ignore control keys, which have non-zero length, as well as the backspace
+                        // key, which is represented as a character of value = 8 on Windows.
+                        displayText.setText(characterTyped);
+                        keyEvent.consume();
+                    }
 
-                centerText();
+
+                    centerText();
+                }
             } else if (keyEvent.getEventType() == KeyEvent.KEY_PRESSED) {
+
                 // Arrow keys should be processed using the KEY_PRESSED event, because KEY_PRESSED
                 // events have a code that we can check (KEY_TYPED events don't have an associated
                 // KeyCode).
@@ -94,6 +93,18 @@ public class Editor extends Application {
                 } else if (code == KeyCode.DOWN) {
                     fontSize = Math.max(0, fontSize - 5);
                     displayText.setFont(Font.font(fontName, fontSize));
+                    centerText();
+                } else if (code == KeyCode.BACK_SPACE) {
+                    characterTypedList.removeLast();
+
+                    for (int i = 0; i < characterTypedList.size(); i++) {
+
+                        characterTyped += characterTypedList.get(i);
+                    }
+
+                    displayText.setText(characterTyped);
+                    keyEvent.consume();
+
                     centerText();
                 }
             }
@@ -134,7 +145,7 @@ public class Editor extends Application {
         scene.setOnKeyTyped(keyEventHandler);
         scene.setOnKeyPressed(keyEventHandler);
 
-        primaryStage.setTitle("Single Letter Display Simple");
+        primaryStage.setTitle("Simple Editor made by Byron");
 
         // This is boilerplate, necessary to setup the window where things are displayed.
         primaryStage.setScene(scene);
@@ -145,3 +156,4 @@ public class Editor extends Application {
         launch(args);
     }
 }
+
