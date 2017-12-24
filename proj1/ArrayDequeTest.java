@@ -22,7 +22,7 @@ public class ArrayDequeTest {
         a.removeFirst();
         a.removeFirst();
         a.addLast(10);
-        a.addFirst(1);
+        a.addFirst(1); 
 
         ArrayDeque<Integer> b = new ArrayDeque<>();
         b.addLast(1);
@@ -166,7 +166,7 @@ public class ArrayDequeTest {
         }
 
 
-        /* System.out.println(a.leng); 32 */
+        /* System.out.println(a.leng); 32  */
     }
 
 }
