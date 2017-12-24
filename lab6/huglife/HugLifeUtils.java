@@ -36,4 +36,10 @@ public class HugLifeUtils {
         int dirIndex = randomInt(L.size() - 1);
         return L.get(dirIndex);
     }
+
+    public static double energyAdjust(double energyInput, double energyMax) {
+        if (energyInput > energyMax)
+            return energyMax;
+        return energyInput;
+    }
 }

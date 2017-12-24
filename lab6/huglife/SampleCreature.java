@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class SampleCreature extends Creature {
     /** red color. */
-    private int r = 15;
+    private int r = 215;
     /** green color. */
     private int g = 61;
     /** blue color. */
@@ -93,6 +93,8 @@ public class SampleCreature extends Creature {
             return new Action(Action.ActionType.MOVE, moveDir);
         }
 
+
+
         if (empties.size() > 1) {
             if (HugLifeUtils.random() < moveProbability) {
                 Direction moveDir = HugLifeUtils.randomEntry(empties);
@@ -115,9 +117,7 @@ public class SampleCreature extends Creature {
       * SampleCreature.
       */
     public SampleCreature replicate() {
-        energy = energy * repEnergyRetained;
-        double babyEnergy = energy * repEnergyGiven;
-        return new SampleCreature(babyEnergy);
+        return this;
     }
 
 }

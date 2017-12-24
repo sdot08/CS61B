@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  */
 
 public class TestGuitarString {
-/*    @Test
+    @Test
     public void testPluckTheAString() {
         double CONCERT_A = 440.0;
         GuitarString aString = new GuitarString(CONCERT_A);
@@ -21,7 +21,7 @@ public class TestGuitarString {
             StdAudio.play(aString.sample());
             aString.tic();
         }
-    }*/
+    }
 
 /*
     @Test
@@ -34,6 +34,7 @@ public class TestGuitarString {
         // Record the front four values, ticcing as we go.
         double s1 = s.sample();
         s.tic();
+
         double s2 = s.sample();
         s.tic(); 
         double s3 = s.sample();
@@ -50,6 +51,7 @@ public class TestGuitarString {
         // See JUnit documentation for a description of how tolerances work
         // for assertEquals(double, double)
         assertEquals(expected, s5, 0.001);
+
 
     }
 */
