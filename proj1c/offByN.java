@@ -1,5 +1,5 @@
 /**
- * Created by hp on 2017/7/13.
+ * Created by hp on 2017/7/13 .
  */
 public class offByN implements CharacterComparator {
     int N;

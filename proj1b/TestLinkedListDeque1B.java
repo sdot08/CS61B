@@ -3,7 +3,8 @@ import static org.hamcrest.CoreMatchers.*;
 import org.junit.Test;
 
 
-
+/*
+*/
 
 
 public class TestLinkedListDeque1B {
