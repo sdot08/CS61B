@@ -1,1 +1,1 @@
-# CS61B
+# It is a repository for the CS61B course, which is a data structure course of UCB. I learned this course through online videos and homeworks and projects on the course webpage  http://datastructur.es/sp16/ . The repository contains the hws and projects I have done while learning the course.
